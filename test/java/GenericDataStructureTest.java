@@ -23,9 +23,9 @@ public class GenericDataStructureTest {
         MyNode<Integer> newSNode = new MyNode<>(56);
         MyNode<Integer> newTNode = new MyNode<>(70);
         CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
-        myCreatedLinkList.add(newFNode);
-        myCreatedLinkList.add(newSNode);
-        myCreatedLinkList.add(newTNode);
+        myCreatedLinkList.addAtLast(newFNode);
+        myCreatedLinkList.addAtLast(newSNode);
+        myCreatedLinkList.addAtLast(newTNode);
 
         boolean isLinkedListCreated = myCreatedLinkList.start.equals(newTNode) &&
                 myCreatedLinkList.start.getNext().equals(newSNode) &&
@@ -41,13 +41,48 @@ public class GenericDataStructureTest {
         MyNode<Integer> newSNode = new MyNode<>(56);
         MyNode<Integer> newTNode = new MyNode<>(70);
         CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
-        myCreatedLinkList.add(newFNode);
-        myCreatedLinkList.add(newSNode);
-        myCreatedLinkList.add(newTNode);
+        myCreatedLinkList.addAtLast(newFNode);
+        myCreatedLinkList.addAtLast(newSNode);
+        myCreatedLinkList.addAtLast(newTNode);
 
         boolean isLinkedListCreated = myCreatedLinkList.start.equals(newTNode) &&
                 myCreatedLinkList.start.getNext().equals(newSNode) &&
                 myCreatedLinkList.last.equals(newSNode);
+        Assert.assertFalse(isLinkedListCreated);
+    }
+
+
+    @Test
+    public void provideThreeNumber_WhenAddedToLast_ShouldReturnTrue()
+    {
+        MyNode<Integer> newFNode = new MyNode<>(56);
+        MyNode<Integer> newSNode = new MyNode<>(30);
+        MyNode<Integer> newTNode = new MyNode<>(70);
+        CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
+        myCreatedLinkList.addAtStart(newFNode);
+        myCreatedLinkList.addAtStart(newSNode);
+        myCreatedLinkList.addAtStart(newTNode);
+
+        boolean isLinkedListCreated = myCreatedLinkList.start.equals(newFNode) &&
+                myCreatedLinkList.start.getNext().equals(newSNode) &&
+                myCreatedLinkList.last.equals(newTNode);
+        Assert.assertTrue(isLinkedListCreated);
+    }
+
+    @Test
+    public void provideThreeNumber_WhenNotAddedToLast_ShouldReturnFalse()
+    {
+        MyNode<Integer> newFNode = new MyNode<>(56);
+        MyNode<Integer> newSNode = new MyNode<>(30);
+        MyNode<Integer> newTNode = new MyNode<>(70);
+        CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
+        myCreatedLinkList.addAtStart(newFNode);
+        myCreatedLinkList.addAtStart(newSNode);
+        myCreatedLinkList.addAtStart(newTNode);
+
+        boolean isLinkedListCreated = myCreatedLinkList.start.equals(newTNode) &&
+                myCreatedLinkList.start.getNext().equals(newSNode) &&
+                myCreatedLinkList.last.equals(newFNode);
         Assert.assertFalse(isLinkedListCreated);
     }
 }
