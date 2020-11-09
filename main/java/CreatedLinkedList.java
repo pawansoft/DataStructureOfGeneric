@@ -1,4 +1,3 @@
-import org.w3c.dom.Node;
 
 public class CreatedLinkedList <T>{
 
@@ -36,4 +35,14 @@ public class CreatedLinkedList <T>{
             this.last = newNode;
         }
     }
+
+    public void addAtSelectedPosition(MyNode<T> mySelectedNode, MyNode<T> newNode) {
+        MyNode<T> tempNode = this.start;
+        while (!tempNode.getNext().equals(mySelectedNode.getNext())) {
+            tempNode = tempNode.getNext();
+        }
+        newNode.setNext(tempNode.getNext());
+        tempNode.setNext(newNode);
+    }
 }
+
