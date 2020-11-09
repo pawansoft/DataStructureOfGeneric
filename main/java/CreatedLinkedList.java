@@ -1,3 +1,4 @@
+import org.w3c.dom.Node;
 
 public class CreatedLinkedList <T>{
 
@@ -9,7 +10,7 @@ public class CreatedLinkedList <T>{
         this.last = null;
     }
 
-    public void addAtLast(MyNode newNode) {
+    public void addAtStart(MyNode newNode) {
         if(last == null) {
             last = newNode;
         }
@@ -23,7 +24,7 @@ public class CreatedLinkedList <T>{
         }
     }
 
-    public void addAtStart(MyNode newNode) {
+    public void addAtLast(MyNode newNode) {
         if(start == null) {
             start = newNode;
         }
@@ -35,6 +36,13 @@ public class CreatedLinkedList <T>{
             this.last = newNode;
         }
     }
+
+    public MyNode RemoveAtStart() {
+        MyNode temp = this.start;
+        this.start = start.getNext();
+        return temp;
+    }
+
 
     public void addAtSelectedPosition(MyNode<T> mySelectedNode, MyNode<T> newNode) {
         MyNode<T> tempNode = this.start;
