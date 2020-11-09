@@ -94,7 +94,7 @@ public class GenericDataStructureTest {
         CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
         myCreatedLinkList.addAtLast(newFNode);
         myCreatedLinkList.addAtStart(newSNode);
-        
+
         myCreatedLinkList.addAtSelectedPosition(newFNode, nodeToInsert);
 
         boolean isLinkedListCreated = myCreatedLinkList.start.equals(newFNode) &&
