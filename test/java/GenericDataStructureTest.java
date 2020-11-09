@@ -104,7 +104,7 @@ public class GenericDataStructureTest {
     }
 
     @Test
-    public void deleteSecondNumber_WhenSecondWillBeDeleted_TestCaseShouldPass()
+    public void deleteStartNumber_WhenStartWillBeDeleted_TestCaseShouldPass()
     {
         MyNode<Integer> newFNode = new MyNode<>(56);
         MyNode<Integer> newSNode = new MyNode<>(30);
@@ -122,7 +122,7 @@ public class GenericDataStructureTest {
     }
 
     @Test
-    public void deleteSecondNumber_WhenSecondWillNotBeDeleted_TestShouldReturnFalse()
+    public void deleteStartNumber_WhenStartWillNotBeDeleted_TestShouldReturnFalse()
     {
         MyNode<Integer> newFNode = new MyNode<>(56);
         MyNode<Integer> newSNode = new MyNode<>(30);
@@ -136,8 +136,26 @@ public class GenericDataStructureTest {
 
         boolean isLinkedListCreated =myCreatedLinkList.start.equals(newFNode) &&
                 myCreatedLinkList.start.getNext().equals(newSNode) &&
-                myCreatedLinkList.last.equals(newTNode);
+                myCreatedLinkList.last.equals(newSNode);
         Assert.assertFalse(isLinkedListCreated);
+    }
+
+    @Test
+    public void deleteLastNumber_WhenLastWillBeDeleted_TestCaseShouldPass()
+    {
+        MyNode<Integer> newFNode = new MyNode<>(56);
+        MyNode<Integer> newSNode = new MyNode<>(30);
+        MyNode<Integer> newTNode = new MyNode<>(70);
+        CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
+        myCreatedLinkList.addAtLast(newFNode);
+        myCreatedLinkList.addAtLast(newSNode);
+        myCreatedLinkList.addAtLast(newTNode);
+
+        myCreatedLinkList.RemoveAtLast();
+
+        boolean isLinkedListCreated =myCreatedLinkList.start.equals(newFNode) &&
+                myCreatedLinkList.last.equals(newSNode);
+        Assert.assertTrue(isLinkedListCreated);
     }
 
 }
