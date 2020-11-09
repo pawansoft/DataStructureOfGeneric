@@ -14,4 +14,12 @@ public class MyNode<T> {
     public void setNext(MyNode next) {
         this.next = next;
     }
+
+    public T getKey() {
+        return key;
+    }
+
+    public void setKey(T key) {
+        this.key = key;
+    }
 }
