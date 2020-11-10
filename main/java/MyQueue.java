@@ -14,4 +14,8 @@ public class MyQueue {
     public MyNode peek() {
         return linkList.last;
     }
+
+    public MyNode dequeue() {
+        return linkList.RemoveAtLast();
+    }
 }
