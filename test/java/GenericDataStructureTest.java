@@ -158,4 +158,62 @@ public class GenericDataStructureTest {
         Assert.assertTrue(isLinkedListCreated);
     }
 
+    @Test
+    public void provideNode_whenSearchNumber_ShouldReturnTrue()
+    {
+        MyNode<Integer> newFNode = new MyNode<>(56);
+        MyNode<Integer> newSNode = new MyNode<>(30);
+        MyNode<Integer> newTNode = new MyNode<>(70);
+        CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
+        myCreatedLinkList.addAtLast(newFNode);
+        myCreatedLinkList.addAtLast(newSNode);
+        myCreatedLinkList.addAtLast(newTNode);
+
+        boolean isNodeFound = myCreatedLinkList.findNode(30);
+        Assert.assertTrue(isNodeFound);
+    }
+
+    @Test
+    public void provideNumber_ShouldAddAfter_WhenAddedTestCaseShouldPassed()
+    {
+        MyNode<Integer> newFNode = new MyNode<>(56);
+        MyNode<Integer> newSNode = new MyNode<>(30);
+        MyNode<Integer> newTNode = new MyNode<>(70);
+        MyNode<Integer> newNodeToAdd = new MyNode<>(40);
+        CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
+        myCreatedLinkList.addAtLast(newFNode);
+        myCreatedLinkList.addAtLast(newSNode);
+        myCreatedLinkList.addAtLast(newTNode);
+
+        myCreatedLinkList.addAfterSearchedPosition(newSNode, newNodeToAdd);
+
+        boolean isLinkedListCreated =myCreatedLinkList.start.equals(newFNode) &&
+                myCreatedLinkList.start.getNext().equals(newSNode) &&
+                myCreatedLinkList.start.getNext().getNext().equals(newNodeToAdd) &&
+                myCreatedLinkList.last.equals(newTNode);
+        Assert.assertTrue(isLinkedListCreated);
+    }
+
+    @Test
+    public void provideNumber_ShouldNotAddAfter_WhenAddedTestCaseShouldPassed()
+    {
+        MyNode<Integer> newFNode = new MyNode<>(56);
+        MyNode<Integer> newSNode = new MyNode<>(30);
+        MyNode<Integer> newTNode = new MyNode<>(70);
+        MyNode<Integer> newNodeToAdd = new MyNode<>(40);
+        CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
+        myCreatedLinkList.addAtLast(newFNode);
+        myCreatedLinkList.addAtLast(newSNode);
+        myCreatedLinkList.addAtLast(newTNode);
+
+        myCreatedLinkList.addAfterSearchedPosition(newSNode, newNodeToAdd);
+
+        boolean isLinkedListCreated =myCreatedLinkList.start.equals(newFNode) &&
+                myCreatedLinkList.start.getNext().equals(newSNode) &&
+                myCreatedLinkList.start.getNext().getNext().equals(newTNode) &&
+                myCreatedLinkList.last.equals(newTNode);
+        Assert.assertFalse(isLinkedListCreated);
+    }
+
+
 }

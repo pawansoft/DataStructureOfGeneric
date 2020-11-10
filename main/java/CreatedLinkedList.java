@@ -52,6 +52,17 @@ public class CreatedLinkedList <T>{
         tempNode.setNext(newNode);
     }
 
+    public void addAfterSearchedPosition(MyNode mySelectedNode, MyNode newNode)
+    {
+        MyNode tempNode = this.start;
+        while (!tempNode.getNext().equals(mySelectedNode.getNext())) {
+            tempNode = tempNode.getNext();
+        }
+
+        newNode.setNext(tempNode.getNext().getNext());
+        tempNode.setNext(newNode);
+    }
+
     public MyNode RemoveAtLast() {
 
        MyNode temp = start;
@@ -63,5 +74,21 @@ public class CreatedLinkedList <T>{
        temp = temp.getNext();
        return temp;
     }
+
+    public boolean findNode(T key) {
+        MyNode temp = start;
+        boolean found = false;
+        System.out.println(temp);
+        while (temp != null && temp.getNext() != null) {
+            if (temp.getKey() == key) {
+                found = true;
+            }
+            else {
+                temp = temp.getNext();
+            }
+        }
+        return found;
+    }
 }
+
 
