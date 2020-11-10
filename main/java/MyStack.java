@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class MyStack {
 
     private final CreatedLinkedList linkList;
@@ -16,5 +18,9 @@ public class MyStack {
 
     public MyNode peak() {
         return linkList.start;
+    }
+
+    public MyNode pop() {
+        return linkList.RemoveAtStart();
     }
 }

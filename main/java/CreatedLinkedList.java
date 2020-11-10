@@ -101,11 +101,6 @@ public class CreatedLinkedList <T> {
         return temp;
         }
 
-    public void shortCreatedLinkedList(MyNode start, MyNode end)
-    {
-        MyNode temp = start;
-    }
-
     public void printMyNode(){
         System.out.println("My nodes" +start);
         System.out.println("Size of linked list" +size);
