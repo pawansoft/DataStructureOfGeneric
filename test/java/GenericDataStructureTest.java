@@ -169,8 +169,11 @@ public class GenericDataStructureTest {
         myCreatedLinkList.addAtLast(newSNode);
         myCreatedLinkList.addAtLast(newTNode);
 
-        boolean isNodeFound = myCreatedLinkList.findNode(30);
-        Assert.assertTrue(isNodeFound);
+        MyNode isNodeFound = myCreatedLinkList.findNode(newSNode);
+
+        myCreatedLinkList.printMyNode();
+        System.out.println(isNodeFound);
+        Assert.assertEquals(newSNode, isNodeFound);
     }
 
     @Test
@@ -239,5 +242,6 @@ public class GenericDataStructureTest {
 //        Assert.assertTrue(isLinkedListCreated);
         Assert.assertEquals(3, linkedSize);
     }
+
 
 }

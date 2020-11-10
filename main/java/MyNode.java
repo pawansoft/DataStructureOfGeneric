@@ -3,7 +3,7 @@ public class MyNode<T> {
     private T key;
 
     public MyNode(T key) {
-        this.key = null;
+        this.key = key;
         this.next = null;
     }
 
