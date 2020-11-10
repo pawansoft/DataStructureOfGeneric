@@ -186,7 +186,6 @@ public class GenericDataStructureTest {
         myCreatedLinkList.addAtLast(newTNode);
 
         myCreatedLinkList.addAfterSearchedPosition(newSNode, newNodeToAdd);
-
         boolean isLinkedListCreated =myCreatedLinkList.start.equals(newFNode) &&
                 myCreatedLinkList.start.getNext().equals(newSNode) &&
                 myCreatedLinkList.start.getNext().getNext().equals(newNodeToAdd) &&
@@ -215,5 +214,30 @@ public class GenericDataStructureTest {
         Assert.assertFalse(isLinkedListCreated);
     }
 
+    @Test
+    public void provideKey_ShouldDeleteAfter_WhenDeletedTestCaseShouldPassed()
+    {
+        MyNode<Integer> newFNode = new MyNode<>(56);
+        MyNode<Integer> newSNode = new MyNode<>(30);
+        MyNode<Integer> newTNode = new MyNode<>(70);
+        MyNode<Integer> newNodeToDelete = new MyNode<>(40);
+        CreatedLinkedList myCreatedLinkList = new CreatedLinkedList();
+        myCreatedLinkList.addAtLast(newFNode);
+        myCreatedLinkList.addAtLast(newSNode);
+        myCreatedLinkList.addAtLast(newNodeToDelete);
+        myCreatedLinkList.addAtLast(newTNode);
+
+        myCreatedLinkList.printMyNode();
+
+        int linkedSize = myCreatedLinkList.deleteAfterSearch(newNodeToDelete);
+
+        myCreatedLinkList.printMyNode();
+
+//        boolean isLinkedListCreated =myCreatedLinkList.start.equals(newFNode) &&
+//                myCreatedLinkList.start.getNext().equals(newSNode) &&
+//                myCreatedLinkList.start.getNext().getNext().equals(newTNode);
+//        Assert.assertTrue(isLinkedListCreated);
+        Assert.assertEquals(3, linkedSize);
+    }
 
 }

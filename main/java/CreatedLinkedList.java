@@ -4,6 +4,7 @@ public class CreatedLinkedList <T>{
 
     public MyNode last;
     public MyNode start;
+    int size=0;
 
     public CreatedLinkedList() {
         this.start = null;
@@ -22,6 +23,7 @@ public class CreatedLinkedList <T>{
             this.start = newNode;
             this.start.setNext(temp);
         }
+        size = size+1;
     }
 
     public void addAtLast(MyNode newNode) {
@@ -35,11 +37,13 @@ public class CreatedLinkedList <T>{
             this.last.setNext(newNode);
             this.last = newNode;
         }
+        size = size+1;
     }
 
     public MyNode RemoveAtStart() {
         MyNode temp = this.start;
         this.start = start.getNext();
+        size = size- 1;
         return temp;
     }
 
@@ -50,6 +54,7 @@ public class CreatedLinkedList <T>{
         }
         newNode.setNext(tempNode.getNext());
         tempNode.setNext(newNode);
+        size = size + 1;
     }
 
     public void addAfterSearchedPosition(MyNode mySelectedNode, MyNode newNode)
@@ -61,6 +66,21 @@ public class CreatedLinkedList <T>{
 
         newNode.setNext(tempNode.getNext().getNext());
         tempNode.setNext(newNode);
+        size = size + 1;
+    }
+    public int deleteAfterSearch(MyNode nodeToDel) {
+        MyNode temp = this.start;
+        MyNode previousNode = null;
+        while (!temp.getNext().equals(nodeToDel.getNext()))
+        {
+            previousNode = temp;
+            temp = temp.getNext();
+        }
+
+        previousNode.setNext(temp.getNext());
+        temp = previousNode;
+        size = size -1;
+        return size;
     }
 
     public MyNode RemoveAtLast() {
@@ -72,6 +92,7 @@ public class CreatedLinkedList <T>{
        }
        this.last = temp;
        temp = temp.getNext();
+       size = size -1;
        return temp;
     }
 
@@ -88,6 +109,11 @@ public class CreatedLinkedList <T>{
             }
         }
         return found;
+    }
+
+    public void printMyNode(){
+        System.out.println("My nodes" +start);
+        System.out.println("Size of linked list" +size);
     }
 }
 

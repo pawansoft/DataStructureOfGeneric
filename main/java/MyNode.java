@@ -25,9 +25,11 @@ public class MyNode<T> {
 
     @Override
     public String toString() {
-        return "MyNode{" +
-                "next=" + next +
-                ", key=" + key +
-                '}';
+        StringBuilder myNodeString = new StringBuilder();
+        myNodeString.append("MyNode" + "key").append(key).append("}");
+        if (next != null) {
+            myNodeString.append("->").append(next);
+        }
+        return myNodeString.toString();
     }
 }
